@@ -46,8 +46,8 @@ jobs:
         include:
           - {pool: {id: py3.9, versions: ['3.9']}, os: ubuntu-24.04}
     steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.3.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb # v6.1.0
         with:
           enable-cache: true
           prune-cache: false
@@ -61,7 +61,7 @@ jobs:
             echo 'EOF'
             echo "envs=$(jq -r 'map("py" + .) | join(",")' <<< "$VERSIONS")"
           } >> "$GITHUB_OUTPUT"
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: ${{ steps.versions.outputs.list }}
       - name: Run this runner's tox environments
@@ -80,16 +80,16 @@ jobs:
   typing:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.3.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb # v6.1.0
         with:
           enable-cache: true
           prune-cache: false
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.13'
       - name: cache mypy
-        uses: actions/cache@v5
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: ./.mypy_cache
           key: mypy|${{ hashFiles('pyproject.toml') }}
