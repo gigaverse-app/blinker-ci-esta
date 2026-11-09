@@ -25,7 +25,7 @@ jobs:
           required-gates-json: '[{"kind":"actions_job","job_name":"Validation gate"}]'
           analyze-critical-path: 'true'
           post-sticky: 'false'
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: ci-report-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
