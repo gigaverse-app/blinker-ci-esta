@@ -199,3 +199,4 @@ Released 2010-02-14
 -   Added Python 2.4 compatibility.
 -   Added nearly functional Python 3.1 compatibility. Everything except
     connecting to instance methods seems to work.
+
